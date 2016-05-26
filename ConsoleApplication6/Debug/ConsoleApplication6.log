@@ -1,0 +1,13 @@
+﻿Build started 26.5.2016 г. 21:10:42.
+     1>Project "C:\Users\stanislav\Documents\Visual Studio 2013\Projects\ConsoleApplication6\ConsoleApplication6\ConsoleApplication6.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\ConsoleApplication6.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
+         Main.cpp
+     1>c:\users\stanislav\documents\visual studio 2013\projects\consoleapplication6\consoleapplication6\main.cpp(70): error C2040: 'currentCitizen' : 'Slave' differs in levels of indirection from 'char *'
+     1>c:\users\stanislav\documents\visual studio 2013\projects\consoleapplication6\consoleapplication6\main.cpp(80): error C2040: 'currentCitizen' : 'Trader' differs in levels of indirection from 'char *'
+     1>c:\users\stanislav\documents\visual studio 2013\projects\consoleapplication6\consoleapplication6\main.cpp(90): error C2040: 'currentCitizen' : 'Soldier' differs in levels of indirection from 'char *'
+     1>Done Building Project "C:\Users\stanislav\Documents\Visual Studio 2013\Projects\ConsoleApplication6\ConsoleApplication6\ConsoleApplication6.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.40
