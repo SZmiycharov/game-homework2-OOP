@@ -48,19 +48,24 @@ void ShowMenu()
 	cout << "\n\tQ \tQuit";
 }
 
-void AddCitizen(Empire empire)
+void AddCitizen(Empire &empire)
 {
-	string command;
-	cout << "Write a command like <add <slave|trader|soldier> <amount>>: ";
-	cin >> command;
-	istringstream iss(command);
 	vector<string> partOfCommand;
+	string command;
+	cout << "Please enter command like <add <slave|trader|soldier> <amount>>: ";
+	getline(cin, command);
+
+	istringstream iss(command);
 	copy(istream_iterator<string>(iss),
 		istream_iterator<string>(),
 		back_inserter(partOfCommand));
 
 	string type = partOfCommand[1];
 	int amount = atoi(partOfCommand[2].c_str());
+	if (type != "slave" && type != "trader" && type != "soldier")
+	{
+		cout << "Type should be slave, trader or soldier!"<<endl;
+	}
 	if (type == "slave")
 	{
 		for (int i = 0; i < amount; i++)
@@ -68,9 +73,10 @@ void AddCitizen(Empire empire)
 			char* currentCitizen = new char[10];
 			gen_random(currentCitizen, 10);
 			int age = 18 + (rand() % (int)(40 - 18 + 1)); // generate random age between 18 and 40
-			Slave currentCitizen(currentCitizen, age);
-			empire.AddCitizens(currentCitizen);
+			Slave* s = new Slave(currentCitizen, age);
+			empire.AddCitizens(s);
 		}
+		cout << amount << " citizens added to the empire!";
 	}
 	else if (type == "trader")
 	{
@@ -78,9 +84,11 @@ void AddCitizen(Empire empire)
 		{
 			char* currentCitizen = new char[10];
 			gen_random(currentCitizen, 10);
-			Trader currentCitizen;
-			empire.AddCitizens(currentCitizen);
+			int age = 18 + (rand() % (int)(40 - 18 + 1)); // generate random age between 18 and 40
+			Slave* s = new Trader(currentCitizen,age);
+			empire.AddCitizens(s);
 		}
+		cout << amount << " citizens added to the empire!";
 	}
 	else if (type == "soldier")
 	{
@@ -88,11 +96,13 @@ void AddCitizen(Empire empire)
 		{
 			char* currentCitizen = new char[10];
 			gen_random(currentCitizen, 10);
-			Soldier currentCitizen;
-			empire.AddCitizens(currentCitizen);
+			int age = 18 + (rand() % (int)(40 - 18 + 1)); // generate random age between 18 and 40
+			Slave* s = new Soldier(currentCitizen, age);
+			empire.AddCitizens(s);
 		}
+		cout << amount << " citizens added to the empire!";
 	}
-	cout << amount << " citizens addet to the empire!";
+	
 }
 
 void Menu(Empire empire)
@@ -104,7 +114,7 @@ void Menu(Empire empire)
 		switch (command)
 		{
 		case 'A': AddCitizen(empire);			 break;		//Add citizen to the Empire
-		case 'L': empire.GetCitizensCount();	 break;		//show current count of citizens
+		case 'L': cout<<"The empire has "<<empire.GetCitizensCount()<<" citizens!"<<endl;	 break;		//show current count of citizens
 		case '?': ShowMenu();					 break;		//Display menu again
 		case 'Q':								 break;		//Quit
 		}
@@ -143,6 +153,9 @@ char GetCommand()
 int main()
 {
 	ShowMenu();
+	cout << endl;
+	Empire e;
+	Menu(e);
 
 	system("pause");
 	return 0;

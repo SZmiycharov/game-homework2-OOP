@@ -12,13 +12,9 @@ Empire::Empire(string name, Slave* slave)
 	citizens.push_back(slave);
 }
 
-
-
-
-string Empire::GetCitizensCount()
+int Empire::GetCitizensCount()
 {
-	string returnStatement = "The empire has " + to_string(citizens.size()) + " citizens!";
-	return returnStatement;
+	return citizens.size();
 }
 
 Empire::~Empire()

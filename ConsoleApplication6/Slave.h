@@ -9,7 +9,7 @@ public:
 	Slave(string name, int age);
 	~Slave();
 	virtual void Work();
-private:
+protected:
 	string m_name;
 	int m_age;
 

@@ -24,7 +24,7 @@ public:
 	Empire();
 	Empire(string name, Slave* slave);
 	~Empire();
-	string GetCitizensCount();
+	int GetCitizensCount();
 
 	template <typename T>
 	void AddCitizens(T* citizen)

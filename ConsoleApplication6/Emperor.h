@@ -5,6 +5,7 @@ class Emperor :
 {
 public:
 	Emperor();
+	Emperor(string name, int age);
 	~Emperor();
 	virtual void Work() override;
 };

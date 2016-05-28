@@ -5,6 +5,7 @@ class Archer :
 {
 public:
 	Archer();
+	Archer(string name, int age);
 	~Archer();
 	virtual void Work() override;
 };
